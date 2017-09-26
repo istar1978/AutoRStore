@@ -1,0 +1,12 @@
+package com.zhaozhy.autorstore.exception;
+/**
+ * 
+ * @author zhaozy
+ *
+ */
+public class DataNotFoundException extends RuntimeException {
+
+	public DataNotFoundException(String msg){
+		super(msg);
+	}
+}

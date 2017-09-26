@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+												http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+												http://www.springframework.org/schema/context 
+												http://www.springframework.org/schema/context/spring-context-2.5.xsd
+												http://www.springframework.org/schema/tx 
+												http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+												http://www.springframework.org/schema/aop 
+												http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<bean id="baseService" class="com.zhaozhy.autorstore.service.impl.BaseServiceImpl" lazy-init="true"   init-method="init">
+		<property name="assComboDAO" ref="AssComboDAO"></property>
+		<property name="assConsumeDAO" ref="AssConsumeDAO"></property>
+		<property name="associatorDAO" ref="AssociatorDAO"></property>
+		<property name="dicDataDAO" ref="DicDataDAO"></property>
+		<property name="branchDAO" ref="BranchDAO" ></property>
+		<property name="consumeListDAO" ref="ConsumeListDAO"></property>
+		<property name="departmentDAO" ref="DepartmentDAO"></property>
+		<property name="depMenuDAO" ref="DepMenuDAO"></property>
+		<property name="itemMateDAO" ref="ItemMateDAO"></property>
+		<property name="materialDAO" ref="MaterialDAO"></property>
+		<property name="menuDAO" ref="MenuDAO"></property>
+		<property name="repairItemDAO" ref="RepairItemDAO"></property>
+		<property name="serialGenDAO" ref="SerialGenDAO"></property>
+		<property name="stafferDAO" ref="StafferDAO"></property>
+		<property name="static2DAO" ref="Static2DAO"></property>
+		<property name="static3DAO" ref="Static3DAO"></property>
+		<property name="static4DAO" ref="Static4DAO"></property>
+		<property name="assRechargeDAO" ref="AssRechargeDAO"></property>
+		<property name="consumeCartDAO" ref="ConsumeCartDAO"></property>
+	</bean>
+	<bean id="assComboService" class="com.zhaozhy.autorstore.service.impl.AssComboServiceImpl" parent="baseService" />
+	<bean id="assConsumeService" class="com.zhaozhy.autorstore.service.impl.AssConsumeServiceImpl" parent="baseService" />
+	<bean id="associatorService" class="com.zhaozhy.autorstore.service.impl.AssociatorServiceImpl" parent="baseService" />
+	<bean id="dicDataService" class="com.zhaozhy.autorstore.service.impl.DicDataServiceImpl" parent="baseService" />
+	<bean id="branchService" class="com.zhaozhy.autorstore.service.impl.BranchServiceImpl" parent="baseService" />
+	<bean id="consumeListService" class="com.zhaozhy.autorstore.service.impl.ConsumeListServiceImpl" parent="baseService" />
+	<bean id="departmentService" class="com.zhaozhy.autorstore.service.impl.DepartmentServiceImpl" parent="baseService" />
+	<bean id="depMenuService" class="com.zhaozhy.autorstore.service.impl.DepMenuServiceImpl" parent="baseService" />
+	<bean id="itemMateService" class="com.zhaozhy.autorstore.service.impl.ItemMateServiceImpl" parent="baseService" />
+	<bean id="materialService" class="com.zhaozhy.autorstore.service.impl.MaterialServiceImpl" parent="baseService" />
+	<bean id="menuService" class="com.zhaozhy.autorstore.service.impl.MenuServiceImpl" parent="baseService" />
+	<bean id="repairItemService" class="com.zhaozhy.autorstore.service.impl.RepairItemServiceImpl" parent="baseService" />
+	<bean id="serialGenService" class="com.zhaozhy.autorstore.service.impl.SerialGenServiceImpl" parent="baseService" />
+	<bean id="stafferService" class="com.zhaozhy.autorstore.service.impl.StafferServiceImpl" parent="baseService" />
+	<bean id="static2Service" class="com.zhaozhy.autorstore.service.impl.Static2ServiceImpl" parent="baseService" />
+	<bean id="static3Service" class="com.zhaozhy.autorstore.service.impl.Static3ServiceImpl" parent="baseService" />
+	<bean id="static4Service" class="com.zhaozhy.autorstore.service.impl.Static4ServiceImpl" parent="baseService" />
+	<bean id="assRechargeService" class="com.zhaozhy.autorstore.service.impl.AssRechargeServiceImpl" parent="baseService" />
+	<bean id="consumeCartService" class="com.zhaozhy.autorstore.service.impl.ConsumeCartServiceImpl" parent="baseService" />
+	
+	</beans>

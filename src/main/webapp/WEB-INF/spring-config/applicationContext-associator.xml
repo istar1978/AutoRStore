@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+												http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+												http://www.springframework.org/schema/context 
+												http://www.springframework.org/schema/context/spring-context-2.5.xsd
+												http://www.springframework.org/schema/tx 
+												http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+												http://www.springframework.org/schema/aop 
+												http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+												
+	<!-- 处理对会员激活的请求   START -->
+	<bean name="/sysadm/associatorInit" class="com.zhaozhy.autorstore.action.AssociatorAction" parent="baseAction" />
+	<bean name="/sysadm/associatorJihuo" class="com.zhaozhy.autorstore.action.AssociatorAction" parent="baseAction" />
+	<bean name="/associator/doAjaxValidateJihuo" class="com.zhaozhy.autorstore.action.AssociatorAction"  parent="baseAction" />
+	<!-- 处理对会员激活的请求    END -->
+	
+	<!-- 处理对会员管理的操作     START -->
+	<bean name="/sysadm/associatorManageInit" class="com.zhaozhy.autorstore.action.AssociatorAction" parent="baseAction"/>
+	<bean name="/sysadm/associatorManage" class="com.zhaozhy.autorstore.action.AssociatorAction" parent="baseAction"/>
+	<bean name="/sysadm/assRechargePage"  class="com.zhaozhy.autorstore.action.AssociatorAction" parent="baseAction"/>
+	<bean name="/sysadm/assRechargeInit" class="com.zhaozhy.autorstore.action.AssociatorAction" parent="baseAction"/>
+	<bean name="/sysadm/assRecharge" class="com.zhaozhy.autorstore.action.AssociatorAction" parent="baseAction" />
+	<!-- 会员卡密码修改     START -->
+	<bean name="/sysadm/associatorEditPwd" class="com.zhaozhy.autorstore.action.AssociatorAction" parent="baseAction" />
+	<!-- 会员卡密码修改     END -->
+	<!-- 会员购买套餐 START -->
+	<bean name="/associator/assComboInit" class="com.zhaozhy.autorstore.action.AssComboAction" parent="baseAction"/>
+	<bean name="/associator/assComboAdd" class="com.zhaozhy.autorstore.action.AssComboAction" parent="baseAction" />
+	<!-- 会员购买套餐 END -->
+	<!-- 会员已购套餐查询 START -->
+	<bean name="/assCombo/assComboQry" class="com.zhaozhy.autorstore.action.AssComboAction" parent="baseAction" />
+	<!-- 会员已购套餐查询 START -->
+	<!-- 处理对会员管理的操作    END -->
+	
+	<!-- 对会员采用ECSIDE展现    START -->
+	<bean name="/chart/associatorPrint" class="com.zhaozhy.autorstore.action.AssociatorAction" parent="baseAction" />
+	<bean name="/chart/time/associatorInit" class="com.zhaozhy.autorstore.action.AssociatorAction" parent="baseAction" />
+	<bean name="/chart/time/associatorPrint" class="com.zhaozhy.autorstore.action.AssociatorAction" parent="baseAction" />
+	<!-- 对会员采用ECSIDE展现    END-->
+</beans>

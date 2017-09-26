@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="loginForm"
+			type="com.zhaozhy.autorstore.form.ValidatorLoginForm"></form-bean>
+		<form-bean name="editPwdForm"
+			type="com.zhaozhy.autorstore.form.ValidatorEditPwdForm"></form-bean>
+		<form-bean name="menuForm"
+			type="com.zhaozhy.autorstore.form.ValidatorMenuForm"></form-bean>
+		<form-bean name="depMenuForm"
+			type="com.zhaozhy.autorstore.form.ValidatorDepMenuForm"></form-bean>
+		<form-bean name="departmentForm"
+			type="com.zhaozhy.autorstore.form.ValidatorDepartmentForm"></form-bean>
+		<form-bean name="associatorForm"
+			type="com.zhaozhy.autorstore.form.ValidatorAssociatorForm"></form-bean>
+		<form-bean name="stafferForm"
+			type="com.zhaozhy.autorstore.form.ValidatorStafferForm"></form-bean>
+		<form-bean name="branchForm"
+			type="com.zhaozhy.autorstore.form.ValidatorBranchForm"></form-bean>
+		<form-bean name="materialForm"
+			type="com.zhaozhy.autorstore.form.ValidatorMaterialForm"></form-bean>
+		<form-bean name="drugForm1"
+			type="com.zhaozhy.autorstore.form.ValidatorDrugForm1"></form-bean>
+		<form-bean name="timeQueryForm"
+			type="com.zhaozhy.autorstore.form.ValidatorTimeQueryForm"></form-bean>
+		<form-bean name="dicDataForm"
+			type="com.zhaozhy.autorstore.form.ValidatorDicDataForm"></form-bean>
+		<form-bean name="repairItemAddForm"
+			type="com.zhaozhy.autorstore.form.ValidatorRepairItemAddForm"></form-bean>
+		<form-bean name="assComboForm"
+			type="com.zhaozhy.autorstore.form.ValidatorAssComboForm"></form-bean>
+		<form-bean name="salesForm" type="com.zhaozhy.autorstore.form.ValidatorSalesForm"></form-bean>
+		<form-bean name="consumeCartForm" type="com.zhaozhy.autorstore.form.ValidatorConsumeCartForm"></form-bean>
+	</form-beans>
+	<global-exceptions>
+		<exception key="global.errors.systemerror"
+			type="com.zhaozhy.autorstore.exception.SystemErrorException" path="/error.jsp"></exception>
+	</global-exceptions>
+</struts-config>

@@ -1,0 +1,47 @@
+body {
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ font-size: 12px;
+ color: #333333;
+}
+a:link {
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ font-size: 12px;
+ color: #CC0000;
+ text-decoration: none;
+}
+a:visited {
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ font-size: 12px;
+ color: #CC0000;
+ text-decoration: none;
+}
+a:hover {
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ font-size: 12px;
+ color: #FF0000;
+ text-decoration: none;
+}
+a.addfile {
+background-image:url(../images/f1.gif);
+background-repeat:no-repeat;
+background-position:-823px -17px;
+display:block;
+height:18px;
+margin-top:-1px;
+text-decoration:none;
+width:65px;
+}
+
+input.addfile {
+/*left:-18px;*/
+}
+
+input.addfile {
+cursor:pointer !important;
+height:20px;
+left:-18px;
+filter:alpha(opacity=10); 
+margin-left:-5px;
+text-decoration:none;
+width:1px;
+}

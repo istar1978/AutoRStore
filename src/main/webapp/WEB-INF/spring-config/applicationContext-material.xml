@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+												http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+												http://www.springframework.org/schema/context 
+												http://www.springframework.org/schema/context/spring-context-2.5.xsd
+												http://www.springframework.org/schema/tx 
+												http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+												http://www.springframework.org/schema/aop 
+												http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+												
+	<!-- 对维修材料的处理   START -->
+	<bean name="/material/materialManage" class="com.zhaozhy.autorstore.action.MaterialAction" parent="baseAction"  />
+	<bean name="/material/materialManageInit" class="com.zhaozhy.autorstore.action.MaterialAction" parent="baseAction"  />
+	<bean name="/material/doAjaxMaterialDel" class="com.zhaozhy.autorstore.action.MaterialAction" parent="baseAction"  />
+	<!-- 处理维修材料入库的管理    START -->
+	<bean name="/material/addMaterialInit" class="com.zhaozhy.autorstore.action.MaterialAction" parent="baseAction" />
+	<bean name="/material/addMaterial" class="com.zhaozhy.autorstore.action.MaterialAction" parent="baseAction" />
+	<!-- 处理维修材料入库的管理   END-->
+	<!-- 维修材料上架的管理   START -->
+	<bean name="/material/shangjiaInit" class="com.zhaozhy.autorstore.action.MaterialAction" parent="baseAction" />
+	<bean name="/material/shangjia" class="com.zhaozhy.autorstore.action.MaterialAction" parent="baseAction" />
+	<!-- 维修材料上架的管理   END -->
+	<!-- 维修材料查询管理   START  -->
+	<bean name="/material/queryInit" class="com.zhaozhy.autorstore.action.MaterialAction" parent="baseAction" />
+	<bean name="/material/query" class="com.zhaozhy.autorstore.action.MaterialAction" parent="baseAction" />
+	<!-- 维修材料查询管理   END -->
+	<!-- 维修材料移库管理   START -->
+	<bean name="/material/transInit" class="com.zhaozhy.autorstore.action.MaterialAction" parent="baseAction" />
+	<bean name="/material/transform" class="com.zhaozhy.autorstore.action.MaterialAction" parent="baseAction" />
+	<!-- 维修材料移库管理   END-->
+	<!-- 维修项目管理 START -->
+	<bean name="/material/repairItemAddInit"  class="com.zhaozhy.autorstore.action.RepairItemAction" parent="baseAction" />
+	<bean name="/material/addRepairItem" class="com.zhaozhy.autorstore.action.RepairItemAction" parent="baseAction" />
+	<bean name="/material/repairItemList" class="com.zhaozhy.autorstore.action.RepairItemAction" parent="baseAction" />
+	<bean  name="/material/repairItemManageInit" class="com.zhaozhy.autorstore.action.RepairItemAction" parent="baseAction" />
+	<bean  name="/material/repairItemManage" class="com.zhaozhy.autorstore.action.RepairItemAction" parent="baseAction" />
+	<bean  name="/material/doAjaxRepairItemDel" class="com.zhaozhy.autorstore.action.RepairItemAction" parent="baseAction" />
+	<!-- 维修项目管理 END -->
+	<!-- 对维修材料的处理    END -->
+	</beans>

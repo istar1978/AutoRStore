@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<action-mappings>
+		
+		<!-- 销售模块     START -->
+		<action path="/sale/salesInit"
+						type="org.springframework.web.struts.DelegatingActionProxy"
+						parameter="salesInit" input="/WEB-INF/autorstore/sales/salesInit.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/sales/salesInit.jsp"></forward>
+		</action>
+		<action path="/sale/salesInitV1"
+						type="org.springframework.web.struts.DelegatingActionProxy"
+						parameter="salesInit" input="/WEB-INF/autorstore/sales/salesInitV1.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/sales/salesInitV1.jsp"></forward>
+		</action>
+		<action path="/sale/salesInputInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="inputInit" input="/WEB-INF/autorstore/sales/salesInput.jsp" name="salesForm">
+			<exception key="global.error.associatorjh"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sales/salesInit.jsp"></exception>
+			<forward name="combo" path="/WEB-INF/autorstore/sales/salesComboInput.jsp" ></forward>
+			<forward name="success" path="/WEB-INF/autorstore/sales/salesInput.jsp"></forward>
+		</action>
+		
+		<action path="/sale/salesInputInitV1"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="inputInitV1" input="/WEB-INF/autorstore/sales/salesInputV1.jsp" >
+			<exception key="global.error.associatorjh"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sales/salesInitV1.jsp"></exception>
+			<forward name="manual" path="/WEB-INF/autorstore/sales/salesInputManual.jsp" ></forward>
+			<forward name="success" path="/WEB-INF/autorstore/sales/salesInput.jsp"></forward>
+		</action>
+		
+		<action path="/sale/cartComboAdd"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="cartComboAdd" input="/WEB-INF/autorstore/sales/salesComboInput.jsp" name="assComboForm" validate="false">
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sales/settleAccountsCom.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sales/settleAccountsCom.jsp"></forward>
+		</action>
+		
+		<action path="/sale/cartManualAdd"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="cartManualAdd" input="/WEB-INF/autorstore/sales/salesInputManual.jsp" >
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sales/settleAccountsManual.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sales/settleAccountsManual.jsp"></forward>
+		</action>
+		
+		<action path="/sale/cartAdd"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="cartAdd" name="consumeCartForm" input="/WEB-INF/autorstore/sales/salesInput.jsp">
+			<exception key="global.error.materialnotenough" 
+				type="com.zhaozhy.autorstore.exception.DataNotEnoughException" path="/WEB-INF/autorstore/sales/saleInpu.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sales/salesInput.jsp"></exception>
+			<exception key="global.errors.salesinputjsp1"
+				type="com.zhaozhy.autorstore.exception.OtherException" path="/WEB-INF/autorstore/sales/salesInput.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sales/salesInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sales/salesInput.jsp"></forward>
+		</action>
+		
+		<action path="/sale/doAjaxValidateCart"
+						type="org.springframework.web.struts.DelegatingActionProxy"
+						parameter="doAjaxValidateCart">
+			<!-- <forward name="success" path="/WEB-INF/autorstore/sales/salesInput.jsp"></forward> -->
+		</action>
+		<action path="/sale/doAjaxValidateAssId"
+						type="org.springframework.web.struts.DelegatingActionProxy"
+						parameter="doAjaxValidateAssId">
+		</action>
+		<action path="/sale/doAjaxAddCart"
+						type="org.springframework.web.struts.DelegatingActionProxy"
+						parameter="doAjaxAddCart">
+		</action>
+		
+		<action path="/sale/settleAccounts"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="settleAccounts" name="salesForm" input="/WEB-INF/autorstore/sales/salesInput.jsp">
+			<exception key="sales.cartisnull" type="com.zhaozhy.autorstore.exception.OtherException" path="/WEB-INF/autorstore/sales/settleAccounts.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sales/settleAccounts.jsp"></forward>
+		</action>
+		<action path="/sale/settleAccountsOut"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="settleAccountsOut">
+			<exception key="sales.cartisnull" type="com.zhaozhy.autorstore.exception.OtherException" path="/WEB-INF/autorstore/sales/settleAccounts.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sales/settleAccounts.jsp"></forward>
+		</action>
+		<action path="/sale/settleAccountComJsp"
+					type="org.springframework.web.struts.DelegatingActionProxy" parameter="settleAccountComJsp">
+		</action>
+		
+		<action path="/sale/settleAccountManualJsp"
+					type="org.springframework.web.struts.DelegatingActionProxy" parameter="settleAccountManualJsp">
+		</action>
+		
+		<action path="/sale/doAjaxDeleteCartItem" type="org.springframework.web.struts.DelegatingActionProxy" parameter="doAjaxDeleteCartItem" scope="request">
+		
+		</action>
+		<!-- 销售模块     END -->
+		</action-mappings>
+		
+</struts-config>

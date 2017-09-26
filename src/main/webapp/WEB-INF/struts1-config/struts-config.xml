@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<action-mappings>
+		
+		<!-- 处理对系统菜单操作的请求 START -->
+		<action path="/sysadm/menuInit"
+			type="org.springframework.web.struts.DelegatingActionProxy" input="/WEB-INF/autorstore/sysadm/menuInput.jsp"
+			parameter="init">
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/menuInput.jsp">
+			</exception>
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/sysadm/menuInput.jsp">
+			</exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/menuInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/menuInput.jsp"></forward>
+		</action>
+		<action path="/sysadm/menuManage"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
+			input="/WEB-INF/autorstore/sysadm/menuInput.jsp" name="menuForm" parameter="manage">
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/menuInput.jsp">
+			</exception>
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/sysadm/menuInput.jsp">
+			</exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/menuInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/menuInput.jsp"></forward>
+		</action>
+		<!-- 处理对系统菜单操作的请求  END -->
+		
+		<!-- 处理对部门权限管理的请求    START -->
+		<action path="/sysadm/deprightInit"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
+			parameter="init" input="/WEB-INF/autorstore/sysadm/deprightInput.jsp">
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/deprightInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/deprightInput.jsp"></forward>
+		</action>
+		<action path="/sysadm/deprightManage"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
+			parameter="manage" input="/WEB-INF/autorstore/sysadm/deprightInput.jsp" name="depMenuForm">
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/deprightInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/deprightInput.jsp"></forward>
+		</action>
+		<!-- 处理对部门权限管理的请求   END -->
+		
+		<!-- 处理对部门管理的请求  START-->
+		<action path="/sysadm/departmentInit"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
+			parameter="init" input="/WEB-INF/autorstore/sysadm/departmentInput.jsp">
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/sysadm/departmentInput.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/departmentInput.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/departmentInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/departmentInput.jsp"></forward>
+		</action>
+		<action path="/sysadm/departmentManage"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
+			parameter="manage" input="/WEB-INF/autorstore/sysadm/departmentInput.jsp"
+			name="departmentForm">
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/sysadm/departmentInput.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/departmentInput.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/departmentInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/departmentInput.jsp"></forward>
+		</action>
+		<!-- 处理对部门管理的请求 END-->
+		
+		
+		<!-- 处理对职员的管理    START -->
+		<action path="/sysadm/stafferInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="init" name="stafferForm" input="/WEB-INF/autorstore/sysadm/stafferInput.jsp">
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/sysadm/stafferInput.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/stafferInput.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/stafferInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/stafferInput.jsp"></forward>
+		</action>
+		<action path="/sysadm/stafferManage"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="manage" name="stafferForm" input="/WEB-INF/autorstore/sysadm/stafferInput.jsp">
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/sysadm/stafferInput.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/stafferInput.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/stafferInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/stafferInput.jsp"></forward>
+		</action>
+		<!-- 处理对职员的管理    END -->
+		
+		<!-- 处理对机构的管理   START -->
+		<action path="/sysadm/branchInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="init" name="branchForm" input="/WEB-INF/autorstore/sysadm/branchInput.jsp">
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/sysadm/branchInput.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/branchInput.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/branchInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/branchInput.jsp"></forward>
+		</action>
+		<action path="/sysadm/branchManage"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="manage" name="branchForm" input="/WEB-INF/autorstore/sysadm/branchInput.jsp">
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/sysadm/branchInput.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/branchInput.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/branchInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/branchInput.jsp"></forward>
+		</action>
+		<!-- 处理对机构的管理   END -->
+		
+		<!-- 对维修材料的处理     START -->
+		<!-- 处理维修材料入库的管理    START -->
+		<action path="/material/addMaterialInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="addMaterialInit" input="/WEB-INF/autorstore/material/materialAdd.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/material/materialAdd.jsp"></forward>
+		</action>
+		<action path="/material/addMaterial"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="addMaterial" name="materialForm" input="/WEB-INF/autorstore/material/materialAdd.jsp">
+			<exception key="global.errors.drug.numberformat" type="java.lang.NumberFormatException"
+				path="/WEB-INF/autorstore/material/materialAdd.jsp">
+			</exception>
+			<exception key="global.drug.error.date"
+				type="com.zhaozhy.autorstore.exception.DateErrorException" path="/WEB-INF/autorstore/material/materialAdd.jsp">
+			</exception>
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/material/materialAdd.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/material/materialAdd.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/material/materialAdd.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/material/materialAdd.jsp"></forward>
+			</action>
+			
+			<action path="/material/materialManageInit"
+			type="org.springframework.web.struts.DelegatingActionProxy" parameter="materialManageInit">
+			<forward name="success" path="/WEB-INF/autorstore/material/materialManage.jsp"></forward>
+			</action>
+		
+		<action path="/material/materialManage"
+			type="org.springframework.web.struts.DelegatingActionProxy" parameter="materialManage">
+			<exception key="global.mannulsuccess" type="com.zhaozhy.autorstore.exception.MannulSuccessException"
+									path="/WEB-INF/autorstore/material/materialManage.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/material/materialManage.jsp"></forward>
+		</action>
+		<action path="/material/doAjaxMaterialDel" 
+						type="org.springframework.web.struts.DelegatingActionProxy" parameter="doAjaxMaterialDel">
+			
+		</action>
+		<!-- 处理药品入库的管理    END -->
+		<!-- 维修项目定义 START -->
+		<action path="/material/repairItemAddInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="repairItemAddInit" input="/WEB-INF/autorstore/material/repairItemAdd.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/material/repairItemAdd.jsp"></forward>
+		</action>
+		<action path="/material/addRepairItem" name="repairItemAddForm"
+			validate="true" type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="repairItemAdd" input="/WEB-INF/autorstore/material/repairItemAdd.jsp">
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/material/repairItemAdd.jsp"></exception>
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/material/repairItemAdd.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/material/repairItemAdd.jsp"></forward>
+		</action>
+		<action path="/material/repairItemList"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="repairItemList" input="/WEB-INF/autorstore/material/repairItemList.jsp">
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/material/repairItemList.jsp"></exception>
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/material/repairItemList.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/material/repairItemList.jsp"></forward>
+		</action>
+		<action path="/material/repairItemManageInit"
+						type="org.springframework.web.struts.DelegatingActionProxy" parameter="repairItemManageInit">
+			<forward name="success" path="/WEB-INF/autorstore/material/repairItemManage.jsp"></forward>
+		</action>
+		<action path="/material/repairItemManage"
+						type="org.springframework.web.struts.DelegatingActionProxy" parameter="repairItemManage">
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/material/repairItemManage.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/material/repairItemManage.jsp"></forward>
+		</action>
+		<action path="/material/doAjaxRepairItemDel"
+						type="org.springframework.web.struts.DelegatingActionProxy" parameter="doAjaxRepairItemDel">
+		</action>
+		<!-- 维修项目定义 END -->
+		<!-- 药品上架的管理   START -->
+		<action path="/material/shangjiaInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="shangjiaInit" input="/WEB-INF/autorstore/material/materialSJ.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/material/materialSJ.jsp"></forward>
+		</action>
+		<action path="/material/shangjia"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="shangjia" name="materialForm" input="/WEB-INF/autorstore/material/materialSJ.jsp">
+			<exception key="global.errors.material.numberformat" type="java.lang.NumberFormatException"
+				path="/WEB-INF/autorstore/material/drugSJ.jsp">
+			</exception>
+			<exception key="global.errors.material.notfull"
+				type="com.zhaozhy.autorstore.exception.OtherException" path="/WEB-INF/autorstore/material/materialSJ.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/material/materialSJ.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/material/materialSJ.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/material/materialSJ.jsp"></forward>
+		</action>
+		<!-- 药品上架的管理   END -->
+		<!-- 维修材料查询管理    START -->
+		<action path="/material/queryInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="queryInit" input="/WEB-INF/autorstore/material/materialQuery.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/material/materialQuery.jsp"></forward>
+		</action>
+		<action path="/material/query"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="query" name="drugForm1" input="/WEB-INF/autorstore/material/materialQuery.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/material/materialList.jsp"></forward>
+		</action>
+		<!-- 维修材料查询管理    END -->
+		<!-- 药品移库管理   START -->
+		<action path="/material/transInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="transInit" input="/WEB-INF/autorstore/material/materialTrans.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/material/materialTrans.jsp"></forward>
+		</action>
+		<action path="/material/transform"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="transform" name="materialForm" input="/WEB-INF/autorstore/material/materialTrans.jsp">
+			<exception key="global.errors.material.notfull"
+				type="com.zhaozhy.autorstore.exception.OtherException" path="/WEB-INF/autorstore/material/materialTrans.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/material/materialTrans.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/material/materialTrans.jsp"></exception>
+			<exception key="global.errors.material.numberformat" type="java.lang.NumberFormatException"
+				path="/WEB-INF/autorstore/material/materialTrans.jsp">
+			</exception>
+			<forward name="success" path="/WEB-INF/autorstore/material/materialTrans.jsp"></forward>
+		</action>
+		<!-- 药品移库管理   END -->
+		<!-- 对维修材料的处理    END -->
+		
+		<!-- 报表统计模块   END -->
+	</action-mappings>
+	<controller>
+		<set-property property="processorClass"
+			value="com.zhaozhy.autorstore.util.ExtDelegatingRequestProcessor" />
+	</controller>
+	<message-resources parameter="com.zhaozhy.struts.ApplicationResources" />
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/struts1-config/validator-rules.xml,/WEB-INF/struts1-config/validation.xml" />
+	</plug-in>
+	<plug-in className="com.zhaozhy.autorstore.util.EmailPlugin"></plug-in>
+</struts-config>

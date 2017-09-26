@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+												http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+												http://www.springframework.org/schema/context 
+												http://www.springframework.org/schema/context/spring-context-2.5.xsd
+												http://www.springframework.org/schema/tx 
+												http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+												http://www.springframework.org/schema/aop 
+												http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+												
+	<!-- 销售模块管理    START -->
+	<bean name="/sale/salesInit" class="com.zhaozhy.autorstore.action.SalesAction" parent="baseAction" />
+	<bean name="/sale/salesInitV1" class="com.zhaozhy.autorstore.action.SalesAction"  parent="baseAction" />
+	<bean name="/sale/salesInputInit" class="com.zhaozhy.autorstore.action.SalesAction" parent="baseAction" />
+	<bean name="/sale/salesInputInitV1" class="com.zhaozhy.autorstore.action.SalesAction" parent="baseAction" />
+	<bean name="/sale/cartAdd" class="com.zhaozhy.autorstore.action.SalesAction" parent="baseAction" />
+	<bean name="/sale/settleAccounts" class="com.zhaozhy.autorstore.action.SalesAction" parent="baseAction" />
+	<bean name="/sale/settleAccountsOut" class="com.zhaozhy.autorstore.action.SalesAction"  parent="baseAction" />
+	<bean name="/sale/cartComboAdd" class="com.zhaozhy.autorstore.action.SalesAction" parent="baseAction" />
+	<bean name="/sale/cartManualAdd" class="com.zhaozhy.autorstore.action.SalesAction"  parent="baseAction" />
+	<bean name="/sale/settleAccountComJsp" class="com.zhaozhy.autorstore.action.SalesAction" parent="baseAction" />
+	<bean name="/sale/settleAccountManualJsp" class="com.zhaozhy.autorstore.action.SalesAction" parent="baseAction" />
+	<bean name="/sale/doAjaxDeleteCartItem" class="com.zhaozhy.autorstore.action.SalesAction" parent="baseAction" />
+	<bean name="/sale/doAjaxValidateCart" class="com.zhaozhy.autorstore.action.SalesAction" parent="baseAction" />
+	<bean name="/sale/doAjaxAddCart" class="com.zhaozhy.autorstore.action.SalesAction"  parent="baseAction"  />
+	<bean  name="/sale/doAjaxValidateAssId" class="com.zhaozhy.autorstore.action.SalesAction" parent="baseAction" />
+	<!-- 销售模块管理    END-->
+	</beans>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+												http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+												http://www.springframework.org/schema/context 
+												http://www.springframework.org/schema/context/spring-context-2.5.xsd
+												http://www.springframework.org/schema/tx 
+												http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+												http://www.springframework.org/schema/aop 
+												http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+												
+	<!-- 报表统计模块   START -->
+	<!-- 对职员采用ECSIDE展现   START -->
+	<bean name="/chart/stafferPrint" class="com.zhaozhy.autorstore.action.StafferAction" parent="baseAction" />
+	<!-- 对职员采用ECSIDE展现   END-->
+	
+	<!-- 对机构采用ECSIDE展现    START -->
+	<bean name="/chart/branchPrint" class="com.zhaozhy.autorstore.action.BranchAction" parent="baseAction" />		
+	<!-- 对机构采用ECSIDE展现    END -->
+	
+	<!-- 对药品进行统计  START -->
+	<bean name="/chart/drugInit" class="com.zhaozhy.autorstore.action.AssConsumeAction" parent="baseAction" />
+	<bean name="/chart/drugSale" class="com.zhaozhy.autorstore.action.AssConsumeAction" parent="baseAction" />
+	<!-- 对药品进行统计  END-->
+	
+	<!-- 某机构利润构成     START -->
+	<bean name="/chart/bybranch/lrbydrugInit" class="com.zhaozhy.autorstore.action.AssConsumeAction" parent="baseAction" />
+	<bean name="/chart/bybranch/lrbydrug" class="com.zhaozhy.autorstore.action.AssConsumeAction" parent="baseAction" />
+	<!-- 某机构利润构成    END -->
+	
+	<!-- 按机构统计利润  线图   START -->
+	<bean name="/chart/bybranch/lrInit" class="com.zhaozhy.autorstore.action.AssConsumeAction" parent="baseAction" />
+	<bean name="/chart/bybranch/lrbybranch" class="com.zhaozhy.autorstore.action.AssConsumeAction" parent="baseAction" />
+	<!-- 按机构统计利润 线图  END-->
+	
+	<!-- 消费历史查询 start -->
+	<bean name="/chart/consumeHisQryInit" class="com.zhaozhy.autorstore.action.ChartAction" parent="baseAction" />
+	<bean name="/chart/consumeHisQry" class="com.zhaozhy.autorstore.action.ChartAction" parent="baseAction" />
+	<!-- 消费历史查询 end -->
+	<!-- 消费明细查询  start -->
+	<bean name="/chart/consumeListHisQryInit" class="com.zhaozhy.autorstore.action.ChartAction" parent="baseAction" />
+	<bean name="/chart/consumeListHisQry" class="com.zhaozhy.autorstore.action.ChartAction" parent="baseAction" />
+	<!-- 消费明细查询  end -->
+	<!-- 会员充值流水查询 start -->
+	<bean name="/chart/rechargeHisQryInit" class="com.zhaozhy.autorstore.action.ChartAction" parent="baseAction"/>
+	<bean name="/chart/rechargeHisQry" class="com.zhaozhy.autorstore.action.ChartAction" parent="baseAction"  />
+	<!-- 会员充值流水查询 end -->
+	<!-- 报表统计模块   END-->
+	</beans>

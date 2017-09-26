@@ -1,0 +1,38 @@
+<%@ page language="java"  pageEncoding="UTF-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<script type="text/javascript" src="${store}/jquery-easyui-1.3.5/jquery.min.js"></script>
+<script type="text/javascript" src="${store}/jquery-easyui-1.3.5/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="${store}/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript"> 
+     var $j = jQuery.noConflict(); 
+</script> 
+
+<!-- 
+<link rel="stylesheet" href="${store}/jquery-easyui-1.3.5/themes/default/easyui.css" type="text/css"></link>
+<link rel="stylesheet" href="${store}/jquery-easyui-1.3.5/themes/icon.css" type="text/css"></link>
+
+<link href="${store }/theme/public.css"rel="stylesheet" type="text/css" />
+<link href="${store }/theme/Master.css" type="text/css" rel="stylesheet" />
+<link href="${store }/theme/login.css" type="text/css" rel="stylesheet" />
+ -->
+<link rel="icon" href="${store}/images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="${store}/images/favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" type="text/css"  href="${store }/ecside/css/ecside_style.css" />
+<script type="text/javascript" src="${store }/ecside/js/prototype_mini.js"></script>
+<script type="text/javascript" src="${store }/ecside/js/ecside_msg_utf8_cn.js"></script>
+<script type="text/javascript" src="${store }/ecside/js/ecside.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="MSThemeCompatible" content="no" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+
+<script type="text/javascript"src="${store}/js/common.js"></script>
+<script type="text/javascript" src="${store }/js/date/WdatePicker.js"></script>
+<script type="text/javascript" src="${store}/js/timer.js"></script>
+<script type="text/javascript" src="${store}/js/checksj.js" ></script>
+
+<title>销售系统</title>

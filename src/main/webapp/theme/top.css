@@ -1,0 +1,17 @@
+BODY {
+	MARGIN-TOP: 0px;
+	FONT-SIZE: 12px;
+	MARGIN-LEFT: 0px;
+	BORDER-WIDTH: 0px;
+	BORDER-STYLE: solid;
+	BORDER-BOTTOM: #ffffff 2px solid
+}
+TD {
+	FONT-SIZE: 12px
+}
+A {
+	FONT-SIZE: 12px; COLOR: #666699; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #000033; TEXT-DECORATION: none
+}

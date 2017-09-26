@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+
+<html>
+	<style>
+.bbb {
+	BORDER-LEFT: black 1px outset;
+	BORDER-RIGHT: black 1px outset;
+}
+</style>
+	<META name="GENERATOR" content="IBM WebSphere Studio">
+
+	<script>
+	var sw = screen.width;
+	var strRows_Current = "25px,*";
+	var strColumns_Current = "200px,10px,*";
+	function showtoc() {
+		if (top.fs.cols == "0px,10px,*") {
+			top.fs.cols = strColumns_Current;
+			document.all("fon").innerHTML = "3";
+			document.all("fon").style.posLeft = -4;
+			oBody.title = "点这里隐藏分类";
+			return
+		}
+		top.fs.cols = "0px,10px,*";
+		oBody.title = "点这里显示分类";
+		document.all("fon").style.posLeft = -6;
+		document.all("fon").innerHTML = "4";
+	}
+	function hidetoc() {
+		top.fs.cols = "0px,10px,*";
+		top.fa.rows = "25px,*";
+		oBody.title = "点这里显示分类";
+		document.all("fon").style.posLeft = -6;
+		document.all("fon").innerHTML = "4";
+	}
+</script>
+	<BODY id="oBody" title="点这里隐藏分类" class="bbb" bgcolor="#38497f"
+		onClick="showtoc()">
+		<table width="100%" height="100%">
+			<tr valign="middle">
+				<td>
+					<font face="Webdings" id="fon"
+						style="color: white; font-size: 9pt; position: relative; left: -4px; cursor: hand;">3</font>
+				</td>
+			</tr>
+		</table>
+	</BODY>
+</html>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<action-mappings>
+		
+		<!-- 报表统计模块   START -->
+		<!-- 对会员采用ECSIDE展现    START -->
+		<action path="/chart/associatorPrint"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="associatorPrint" input="/WEB-INF/autorstore/statistic/associator/associatorPrint.jsp">
+			<forward name="success"
+				path="/WEB-INF/autorstore/statistic/associator/associatorPrint.jsp"></forward>
+		</action>
+		<action path="/chart/time/associatorInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="timeInit" name="timeQueryForm" input="/WEB-INF/autorstore/statistic/associator/time.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/statistic/associator/time.jsp"></forward>
+		</action>
+		<action path="/chart/time/associatorPrint"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="timeQueryPrint" name="timeQueryForm"
+			input="/WEB-INF/autorstore/statistic/associator/time.jsp">
+			<exception key="errors.statistic.dateerror1"
+				type="com.zhaozhy.autorstore.exception.DateErrorException" path="/WEB-INF/autorstore/statistic/associator/time.jsp"></exception>
+			<forward name="success"
+				path="/WEB-INF/autorstore/statistic/associator/associatorPrintTime.jsp"></forward>
+		</action>
+			<!-- 对会员采用ECSIDE展现    END-->
+			<!-- 对职员采用ECSIDE展现   START -->
+		<action path="/chart/stafferPrint"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="stafferPrint" input="/WEB-INF/autorstore/statistic/stafferPrint.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/statistic/stafferPrint.jsp"></forward>
+		</action>
+			<!-- 对职员采用ECSIDE展现   END-->
+			<!-- 对机构采用ECSIDE展现    START -->
+		<action path="/chart/branchPrint"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="branchPrint" input="/WEB-INF/autorstore/statistic/branchPrint.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/statistic/branchPrint.jsp"></forward>
+		</action>
+			<!-- 对机构采用ECSIDE展现    END -->
+			<!-- 药品销售统计   START -->
+		<action path="/chart/drugInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="chartDrugInit" name="timeQueryForm"
+			input="/WEB-INF/autorstore/statistic/drug/drugInit.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/statistic/drug/drugInit.jsp"></forward>
+		</action>
+		<action path="/chart/drugSale"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="produceDrugChart" name="timeQueryForm"
+			input="/WEB-INF/autorstore/statistic/drug/drugInit.jsp">
+			<exception key="errors.statistic.dateerror1"
+				type="com.zhaozhy.autorstore.exception.DateErrorException" path="/WEB-INF/autorstore/statistic/drug/drugInit.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/statistic/drug/statisticList.jsp"></forward>
+		</action>
+			<!-- 药品销售统计  END-->
+			<!-- 某机构利润构成     START -->
+		<action path="/chart/bybranch/lrbydrugInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="lrByDrugInit" name="timeQueryForm"
+			input="/WEB-INF/autorstore/statistic/drug/lrByDrugInit.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/statistic/drug/lrByDrugInit.jsp"></forward>
+		</action>
+		<action path="/chart/bybranch/lrbydrug"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="lrByDrug" name="timeQueryForm"
+			input="/WEB-INF/autorstore/statistic/drug/lrByDrugInit.jsp">
+			<exception key="errors.statistic.dateerror1"
+				type="com.zhaozhy.autorstore.exception.DateErrorException" path="/WEB-INF/autorstore/statistic/drug/lrByDrugInit.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/statistic/chartprint.jsp"></forward>
+		</action>
+			<!-- 某机构利润构成    END -->
+			<!-- 按机构统计利润  线图   START -->
+		<action path="/chart/bybranch/lrInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="lrByBranchInit" name="timeQueryForm"
+			input="/WEB-INF/autorstore/statistic/lr/lrByBranchInit.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/statistic/lr/lrByBranchInit.jsp"></forward>
+		</action>
+		<action path="/chart/bybranch/lrbybranch"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="lrByBranch" name="timeQueryForm" input="/WEB-INF/autorstore/statistic/chartprint.jsp">
+			<exception key="errors.statistic.dateerror1"
+				type="com.zhaozhy.autorstore.exception.DateErrorException" path="/WEB-INF/autorstore/statistic/lr/lrByBranchInit.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/statistic/chartprint.jsp"></forward>
+		</action>
+			<!-- 按机构统计利润 线图  END-->
+			<!-- 消费历史查询 start -->
+			<action path="/chart/consumeHisQryInit" type="org.springframework.web.struts.DelegatingActionProxy"
+							parameter="consumeHisQryInit" scope="request">
+				<forward name="success" path="/WEB-INF/autorstore/statistic/consumeHisQry.jsp"></forward>
+			</action>
+			<action path="/chart/consumeHisQry" type="org.springframework.web.struts.DelegatingActionProxy"
+							parameter="consumeHisQry" scope="request">
+				<forward name="success" path="/WEB-INF/autorstore/statistic/consumeHisQry.jsp"></forward>
+			</action>
+			<!-- 消费历史查询 end -->
+			<!-- 消费明细查询 start -->
+			<action path="/chart/consumeListHisQryInit" type="org.springframework.web.struts.DelegatingActionProxy"
+								parameter="consumeListHisQryInit" scope="request">
+				<forward name="success" path="/WEB-INF/autorstore/statistic/consumeListHisQry.jsp"></forward>
+			</action>
+			<action path="/chart/consumeListHisQry" type="org.springframework.web.struts.DelegatingActionProxy"
+							parameter="consumeListHisQry" scope="request">
+				<forward name="success" path="/WEB-INF/autorstore/statistic/consumeListHisQry.jsp"></forward>
+			</action>
+			<!-- 消费明细查询 end -->
+			<!-- 会员充值流水查询  start -->
+			<action path="/chart/rechargeHisQryInit" type="org.springframework.web.struts.DelegatingActionProxy"
+							parameter="rechargeHisQryInit" scope="request">
+				<forward name="success" path="/WEB-INF/autorstore/statistic/rechargeHisQry.jsp"></forward>
+			</action>
+			<action path="/chart/rechargeHisQry" type="org.springframework.web.struts.DelegatingActionProxy"
+							parameter="rechargeHisQry" scope="request">
+				<forward name="success" path="/WEB-INF/autorstore/statistic/rechargeHisQry.jsp"></forward>
+			</action>
+			<!-- 会员充值流水查询  end -->
+		<!-- 报表统计模块   END -->
+	</action-mappings>
+</struts-config>

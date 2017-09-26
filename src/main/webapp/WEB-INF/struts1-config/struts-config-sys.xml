@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<action-mappings>
+		<!-- 参数管理 -->
+		<action path="/sysadm/dicDataInit"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="dicDataForm"
+			scope="request" input="/WEB-INF/autorstore/sysadm/dicDataInput.jsp"
+			parameter="manageInit">
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/sysadm/dicDataInput.jsp">
+			</exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/dicDataInput.jsp">
+			</exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/dicDataInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/dicDataInput.jsp" redirect="true"></forward>
+		</action>
+		<action path="/sysadm/dicDataManage"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="dicDataForm"
+			scope="request" input="/WEB-INF/autorstore/sysadm/dicDataInput.jsp"
+			parameter="manage">
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/sysadm/dicDataInput.jsp">
+			</exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/dicDataInput.jsp">
+			</exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/dicDataInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/dicDataInput.jsp" redirect="true"></forward>
+		</action>
+	
+		<!-- 处理登陆请求   START-->
+		<action path="/sysadm/login"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="loginForm"
+			scope="request" input="/login.jsp" parameter="login">
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/login.jsp">
+			</exception>
+			<exception key="global.errors.passworderror"
+				type="com.zhaozhy.autorstore.exception.PasswordErrorException" path="/login.jsp"></exception>
+			<exception key="global.errors.systemerror"
+				type="com.zhaozhy.autorstore.exception.SystemErrorException" path="/login.jsp"></exception>
+			<forward name="success" path="/main.jsp" redirect="true"></forward>
+		</action>
+		<!-- 处理登陆请求   END-->
+		
+		<!-- 处理登出请求   START -->
+		<action path="/sysadm/logout"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
+			parameter="logout">
+			<forward name="success" path="/login.jsp" redirect="true"></forward>
+		</action>
+		<!-- 处理登出请求   END -->
+		
+		<!-- 处理修改密码的请求  START -->
+		<action path="/sysadm/editpwdInit" type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
+						parameter="editPwdInit" input="/WEB-INF/autorstore/sysadm/editpwd.jsp">
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/editpwd.jsp"></forward>		
+		</action>
+		<action path="/sysadm/editpwd"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
+			parameter="editPwd" input="/WEB-INF/autorstore/sysadm/editpwd.jsp" name="editPwdForm">
+			<exception key="global.passwordnotsame"
+				type="com.zhaozhy.autorstore.exception.PasswordNotSameException"
+				path="/WEB-INF/autorstore/sysadm/editpwd.jsp"></exception>
+			<exception key="global.errors.passworderror"
+				type="com.zhaozhy.autorstore.exception.PasswordErrorException" path="/WEB-INF/autorstore/sysadm/editpwd.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/editpwd.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/editpwd.jsp" ></forward>
+		</action>
+		<!-- 处理修改密码的请求  END -->
+		
+		<!-- 登陆成功后顶部页面的展现请求  START -->
+		<action path="/sysadm/topFrame"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
+			input="/top.jsp" parameter="topFrame">
+			<forward name="success" path="/top.jsp"></forward>
+		</action>
+		<!-- 登陆成功后顶部页面的展现请求 END -->
+		
+		
+		<!-- 处理登陆成功后左侧动态菜单的请求   START -->
+		<action path="/sysadm/dynaMenu"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
+			parameter="dynaMenu" input="/dynaMenu.jsp">
+			<forward name="success" path="/dynaMenu.jsp"></forward>
+		</action>
+		<!-- 处理登陆成功后左侧动态菜单的请求  END -->
+	</action-mappings>
+</struts-config>

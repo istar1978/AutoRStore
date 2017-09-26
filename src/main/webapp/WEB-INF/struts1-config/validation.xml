@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC
+     "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+     "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+<form-validation>
+	<global>
+	</global>
+	<formset>
+	<!-- 职员登陆页面的校验 -->
+		<form name="loginForm">
+			<field property="username" depends="required,mask">
+				<arg0 key="global.username" />
+				<arg1 key="${var:mask}" resource="false" name="mask" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]+$</var-value>
+				</var>
+			</field>
+			<field property="password" depends="required,minlength,maxlength,mask">
+				<arg0 key="global.password" />
+				<arg1 key="${var:minlength}" resource="false" name="minlength" />
+				<arg1 key="${var:maxlength}" resource="false" name="maxlength" />
+				<arg1 key="${var:mask}" resource="false" name="mask" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>20</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9a-zA-Z]+$</var-value>
+				</var>
+			</field>
+		</form>
+		
+		<!-- 密码修改页面的校验 -->
+		<form name="editPwdForm">
+			<field property="oldPassword" depends="required">
+				<arg key="global.oldPassword" />
+			</field>
+			<field property="newPassword1" depends="required,minlength,maxlength,mask">
+				<arg0 key="global.newPassword" />
+				<arg1 key="${var:minlength}" resource="false" name="minlength" />
+				<arg2 key="${var:maxlength}" resource="false" name="maxlength" />
+				<arg3 key="${var:mask}" resource="false" name="mask" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>20</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9a-zA-Z.*_\-]+$</var-value>
+				</var>
+			</field>
+		</form>
+		<!--
+			对menuInput.jsp页面的校验 <form name="menuForm"> <field property="menuId"
+			depends="required,mask"> <arg0 key="global.menuId"/> <arg1
+			key="${var:mask}" resource="false" name="mask"/> <var>
+			<var-name>mask</var-name> <var-value>^[0-9]+$</var-value> </var>
+			</field> <field property="menuName" depends="required,maxlength">
+			<arg0 key="global.menuName"/> <arg1 key="${var:maxlength}"
+			resource="false" name="maxlength"/> <var>
+			<var-name>maxlength</var-name> <var-value>30</var-value> </var>
+			</field> </form>
+		-->
+		
+		<form name="dicDataForm">
+			<field property="dic_large" depends="">
+				<arg0 key="global.dicdata.diclarge"/>
+			</field>
+			<field property="dic_value" depends="">
+				<arg0 key="global.dicdata.dicvalue"/>
+			</field>
+		</form>
+		
+		<!-- 对menuInput.jsp页面的校验 -->
+		<form name="menuForm">
+			<field property="menuId" depends=""></field>
+		</form>
+		
+		<!-- 对 departmentInput.jsp页面的校验-->
+		<form name="departmentForm">
+			<field property="depId" depends=""></field>
+		</form>
+		
+		<!-- 对deprightInput.jsp页面的校验 -->
+		<form name="depMenuForm">
+			<field property="busi" depends=""></field>
+		</form>
+		
+		<!-- 对associatorInput.jsp 的页面校验-->
+		<form name="associatorForm">
+			<field property="a_id" depends="required,maxlength,mask">
+				<arg0 key="global.associator.assid"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<arg2 name="mask" key="${var:mask}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>10</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[A-Za-z0-9]+$</var-value>
+				</var>
+			</field>
+			<field property="a_balance" depends="double">
+				<arg0 key="errors.recharge.balance"/>
+			</field>
+			<field property="a_pbalance" depends="double">
+				<arg0 key="errors.recharge.pbalance"/>
+			</field>
+			<field property="a_tel" depends="">
+			
+			</field>
+		</form>
+		
+		<!-- 对stafferInput.jsp的页面校验 -->
+		<form name="stafferForm">
+			<field property="s_id" depends=""></field>
+		</form>
+		
+		
+		<!-- materialAdd.jsp页面校验 -->
+		<form name="materialForm">
+			<field property="dr_id" depends="">
+				<arg0 key="global.errors.material.id" />
+			</field>
+			<field property="pre_price" depends="required,double">
+				<arg0 key="global.errors.material.pre_price" />
+				<arg1 key="global.errors.material.pre_price" />
+			</field>
+			<field property="real_price" depends="required,double">
+				<arg0 key="global.errors.material.real_price" />
+				<arg1 key="global.errors.material.real_price" />
+			</field>
+			<field property="dr_num" depends="required,integer">
+				<arg0 key="global.errors.material.num" />
+				<arg1 key="global.errors.material.num" />
+			</field>
+		</form>
+		
+		<!-- 对branchInput.jsp的页面校验 -->
+		<form name="branchForm">
+			<field property="b_id" depends=""></field>
+		</form>
+		
+		<form name="drugForm1">
+			<field property="dr_id" depends=""></field>
+		</form>
+		<form name="timeQueryForm">
+			<field property="b_id" depends=""></field>
+		</form>
+		
+		<!-- Repair Item Form -->
+		<form name="repairItemAddForm">
+			<field property="rep_id" depends="">
+				<arg0 key="global.repairitem.repid"/>
+			</field>
+			<field property="rep_name" depends="required">
+				<arg0 key="global.repairitem.repname"/>
+			</field>
+			<field property="rep_money" depends="double">
+				<arg0 key="global.repairitem.repmoney"/>
+			</field>
+		</form>
+		
+		<!-- AssCombo form -->
+		<form name="assComboForm">
+		<!-- 
+			<field property="com_id" depends="required" >
+				<arg0 key="global.asscombo.comid"/>
+			</field>
+			 
+			<field property="com_name" depends="required">
+				<arg0 key="global.asscombo.comname"/>
+			</field>
+			<field property="ass_stat" depends="required">
+				<arg0 key="global.stat"/>
+			</field>
+			-->
+			<field property="rep_id" depends="required">
+				<arg0 key="global.repairitem.repid"/>
+			</field>
+			<field property="com_sdate" depends="required">
+				<arg0 key="global.begindate"/>
+			</field>
+			<field property="com_edate" depends="required">
+				<arg0 key="global.enddate"/>
+			</field>
+			<field property="com_item" depends="required">
+				<arg0 key="global.classify"/>
+			</field>
+			
+			<field property="com_time" depends="required,integer">
+				<arg0 key="global.asscombo.comtime"/>
+			</field>
+			<field property="com_price" depends="required,double">
+				<arg0 key="global.asscombo.comprice"/>
+			</field>
+		</form>
+		<form name="salesForm">
+			<field property="com_id" depends=""></field>
+		</form>
+		<form name="consumeCartForm">
+			<field property="cart_num" depends="required,integer">
+				<arg0 key="global.consumecart.cartnum"/>
+			</field>
+		</form>
+	</formset>
+</form-validation>

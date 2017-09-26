@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<action-mappings>
+		<!-- 处理对会员激活的请求    START	 -->
+		<action path="/sysadm/associatorInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="init" input="/WEB-INF/autorstore/sysadm/associatorInput.jsp">
+			<exception key="global.error.associatorjh2"
+				type="com.zhaozhy.autorstore.exception.RepeatActiveException" path="/WEB-INF/autorstore/sysadm/associatorInput.jsp"></exception>
+			<exception key="global.error.associatorjh"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/associatorInput.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/associatorInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/associatorInput.jsp"></forward>
+		</action>
+		<action path="/sysadm/associatorJihuo"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="jihuo" input="/WEB-INF/autorstore/sysadm/associatorInput.jsp"
+			name="associatorForm">
+			<exception key="global.error.associatorjh2"
+				type="com.zhaozhy.autorstore.exception.RepeatActiveException" path="/WEB-INF/autorstore/sysadm/associatorInput.jsp"></exception>
+			<exception key="global.error.associatorjh"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/associatorInput.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/associatorInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/associatorInput.jsp"></forward>
+		</action>
+		<action path="/associator/doAjaxValidateJihuo"
+						type="org.springframework.web.struts.DelegatingActionProxy"
+						parameter="doAjaxValidateJihuo">
+		
+		</action>
+		<!-- 处理对会员激活的请求    END	 -->
+		
+		<!-- 处理对会员管理的操作     START -->
+		<action path="/sysadm/associatorManageInit"
+			type="org.springframework.web.struts.DelegatingActionProxy" 
+			parameter="manageInit" input="/WEB-INF/autorstore/sysadm/associatorManage.jsp">
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/sysadm/associatorManage.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/associatorManage.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/associatorManage.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/associatorManage.jsp"></forward>
+		</action>
+		<action path="/sysadm/associatorManage"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="associatorForm" validate="false"
+			parameter="manage" input="/WEB-INF/autorstore/sysadm/associatorManage.jsp">
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/sysadm/associatorManage.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/associatorManage.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/associatorManage.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/associatorManage.jsp"></forward>
+		</action>
+		<!-- 会员充值 start -->
+		<action path="/sysadm/assRechargePage" 
+						type="org.springframework.web.struts.DelegatingActionProxy" parameter="rechargeInitPage" scope="request">
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/assRechargeInit.jsp"></forward>
+		</action>
+		<action path="/sysadm/assRechargeInit"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="associatorForm"
+			parameter="rechargeInit" input="/WEB-INF/autorstore/sysadm/assRechargeInit.jsp">
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/sysadm/assRechargeInit.jsp"></exception>
+			<exception key="global.errors.associatornotinuse"
+				type="com.zhaozhy.autorstore.exception.AssociatorNotInUseException"
+				path="/WEB-INF/autorstore/sysadm/assRechargeInit.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/assRechargeInit.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/assRechargeInit.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/assRecharge.jsp"></forward>
+		</action>
+		<action path="/sysadm/assRecharge"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="associatorForm"
+			parameter="recharge" input="/WEB-INF/autorstore/sysadm/assRecharge.jsp">
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/sysadm/assRecharge.jsp"></exception>
+			<exception key="global.errors.associatornotinuse"
+				type="com.zhaozhy.autorstore.exception.AssociatorNotInUseException"
+				path="/WEB-INF/autorstore/sysadm/assRecharge.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/assRecharge.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/assRecharge.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/assRecharge.jsp"></forward>
+		</action>
+		<!-- 会员充值 end -->
+		<!-- 会员卡密码修改     START-->
+		<action path="/sysadm/associatorEditPwd"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="editPwd" name="associatorForm" input="/WEB-INF/autorstore/sysadm/associatorEditPwd.jsp">
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/sysadm/associatorEditPwd.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/sysadm/associatorEditPwd.jsp"></exception>
+			<exception key="global.passwordnotsame"
+				type="com.zhaozhy.autorstore.exception.PasswordNotSameException"
+				path="/WEB-INF/autorstore/sysadm/associatorEditPwd.jsp"></exception>
+			<exception key="global.errors.passworderror"
+				type="com.zhaozhy.autorstore.exception.PasswordErrorException" path="/WEB-INF/autorstore/sysadm/associatorEditPwd.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/sysadm/associatorEditPwd.jsp"></forward>
+		</action>
+		<!-- 会员卡密码修改     END-->
+		<!-- 会员优惠套餐购买 START -->
+		<action path="/associator/assComboInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="init" name="assComboForm" validate="false"
+			input="/WEB-INF/autorstore/associator/assComboInit.jsp">
+			<exception key="global.errors.associatornotinuse"
+				type="com.zhaozhy.autorstore.exception.AssociatorNotInUseException"
+				path="/WEB-INF/autorstore/associator/assComboInit.jsp"></exception>
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/associator/assComboInit.jsp"></exception>
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/associator/assComboInit.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/associator/assComboInput.jsp"></forward>
+		</action>
+		<action path="/associator/assComboAdd"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="assComboAdd" name="assComboForm" validate="true"
+			input="/WEB-INF/autorstore/associator/assComboInput.jsp">
+			<exception key="global.errors.dataexist"
+				type="com.zhaozhy.autorstore.exception.DataAlreadyExistException"
+				path="/WEB-INF/autorstore/associator/assComboInput.jsp"></exception>
+			<exception key="global.mannulsuccess"
+				type="com.zhaozhy.autorstore.exception.MannulSuccessException" path="/WEB-INF/autorstore/associator/assComboInput.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/associator/assComboInput.jsp"></forward>
+		</action>
+		<!-- 会员优惠套餐购买 START -->
+		<!-- 查询会员优惠套餐信息 START -->
+		<action path="/assCombo/assComboQry" type="org.springframework.web.struts.DelegatingActionProxy"
+						parameter="assComboQry" name="assComboForm" validate="false"
+						input="/WEB-INF/autorstore/associator/assComboQryInit.jsp">
+			<exception key="global.errors.datanotfound"
+				type="com.zhaozhy.autorstore.exception.DataNotFoundException" path="/WEB-INF/autorstore/associator/assComboQryInit.jsp"></exception>
+			<forward name="success" path="/WEB-INF/autorstore/associator/assComboQryPrint.jsp"></forward>
+		</action>
+		<!-- 查询会员优惠套餐信息 END -->
+		<!-- 处理对会员管理的操作     END -->
+		</action-mappings>
+</struts-config>
